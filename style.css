@@ -1,3 +1,37 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0;
+}
+
+header{
+    height: 5rem;
+    background-color: aliceblue;
+    border-bottom: 2px solid black;
+}
+
+header p{
+    margin: 0;
+    line-height: .9rem;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+main{
+    padding: 1.5rem 2rem;
+}
+
+main *{
+    margin: 0;
+    margin-bottom: 2rem;
+}
+
 .newDiv{
     font-family: sans-serif;
     text-align: center;
@@ -7,4 +41,15 @@
 .key-log{
     font-size: 32px;
     font-family: sans-serif;
+    max-width: calc(100vw - 4rem);
+}
+
+.block-description{
+    border: 1px solid black;
+    font-size: 1.6rem;
+}
+
+.block-description p, .block-description{
+    display: inline-block;
+    margin: 0;
 }
