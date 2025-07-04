@@ -41,16 +41,33 @@ document.addEventListener("keydown" , (e)=> {
 //с описанием сделаной работы.
 //Для полного кайфа стоит сделать это всё через цикл, а значения добавить через объект, где будет такая
 //цепочка - задача1 : описание1 , задача2 : описание2
+//UPD1 - делаю не совсем через объект , а через словарь , потому что оказывается , что он обрабатывается
+//быстрее обычного объекта
+let item = ''
 
+function mapCheckUp(mapName){
+    for (let item of mapName)
+        console.log(item)
+}
 
-let newDivCounter = 0
+let itemsMap = new Map
+
+function addMapItem(task , desc){
+    itemsMap.set(`${task}` , desc)
+}
+
+addMapItem(keyLog , 'Это виртуальная клавиатура , реализованная через слушатель событий keyDown')
+addMapItem(newDiv , 'Это элемент, вставленный в DOM при помощи Java Script')
+mapCheckUp(itemsMap)
+
+let newDivSpoilerState = false
 
 newDiv.addEventListener('mouseover' , ()=> {
-    let newDivDesc = document.createElement("div")
-    if (newDivCounter == 0) {
-        newDivDesc.innerHTML = '<div class = "block-description"><p>Это элемент, вставленный при помощи Java Script</p></div>'
-        newDiv.after(newDivDesc)
-        newDivCounter ++
+    let newDivSpoiler = document.createElement("div")
+    if (newDivSpoilerState == false){
+        newDivSpoiler.innerHTML = '<div class = "block-description"><p>Это элемент, вставленный при помощи Java Script</p></div>'
+        newDiv.after(newDivSpoiler)
+        newDivSpoilerState == true
     }
 
     else{
