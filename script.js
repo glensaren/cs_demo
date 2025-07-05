@@ -1,3 +1,12 @@
+let itemsMap = new Map
+const testPishka = document.querySelector('.test-pishka')
+
+
+function addMapItem(task , desc){
+    itemsMap.set(task , desc)
+}
+
+
 //0) вспоминаю, что такое append и alert + selector
 
 const testButton = document.querySelector('.test-button')
@@ -10,6 +19,7 @@ let newDiv = document.createElement("div")
 newDiv.innerHTML = "<h1>Это вставленный текст</h1>"
 newDiv.className = "newDiv"
 mainBox.append(newDiv)
+addMapItem(newDiv , 'Это элемент, вставленный в DOM при помощи Java Script')
 
 //==========================================================================================================
 
@@ -34,6 +44,8 @@ document.addEventListener("keydown" , (e)=> {
     keyLog.textContent += `${e.key}`
 })
 
+addMapItem(keyLog , 'Это виртуальная клавиатура , реализованная через слушатель событий keyDown')
+
 //==========================================================================================================
 
 //2)Описание каждого програмного блока при наведении на него ("Spoiler")
@@ -43,21 +55,15 @@ document.addEventListener("keydown" , (e)=> {
 //цепочка - задача1 : описание1 , задача2 : описание2
 //UPD1 - делаю не совсем через объект , а через словарь , потому что оказывается , что он обрабатывается
 //быстрее обычного объекта
-let item = ''
 
 function mapCheckUp(mapName){
     for (let item of mapName)
         console.log(item)
 }
 
-let itemsMap = new Map
 
-function addMapItem(task , desc){
-    itemsMap.set(`${task}` , desc)
-}
 
-addMapItem(keyLog , 'Это виртуальная клавиатура , реализованная через слушатель событий keyDown')
-addMapItem(newDiv , 'Это элемент, вставленный в DOM при помощи Java Script')
+
 mapCheckUp(itemsMap)
 
 let newDivSpoilerState = false
@@ -75,9 +81,21 @@ newDiv.addEventListener('mouseover' , ()=> {
     }
 })
 
-newDiv.addEventListener('mouseleave', ()=> {
-    newDivDesc.remove()
-})
+function createSpoiler(blockName , blockDescription) {
+    let blockNameSpoiler = document.createElement("div")
+    let spoilerState = false
+    if (spoilerState == false) {
+        blockNameSpoiler.innerHTML = '<div class = "block-description"><p> ' + blockDescription + '</p></div>'
+        blockName.after(blockNameSpoiler)
+        spoilerState == true
+    }
+}
+
+createSpoiler(testPishka , 'Это тестовая пишка , и я её создал через функцию')
+
+// newDiv.addEventListener('mouseleave', ()=> {
+//     newDivSpoiler.remove()
+// })
 
 
 //==========================================================================================================
