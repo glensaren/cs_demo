@@ -61,8 +61,25 @@ function mapCheckUp(mapName){
         console.log(item)
 }
 
+//!!
 
+function createTest(){
+    let testValue = 'Заработало!!!'
+    return testValue
 
+}
+
+function useTest(){
+    let usableValue = createTest()
+    alert(usableValue)
+}
+
+useTest()
+
+//!!
+//ПРИМ: Тут я использовал ГПТ , так как дурак ебанат сел за работу слишком поздно, и времени нет.
+//Но самое главное - я немного лучше разобрался с работой перенных (а точнее их областями видимости) и
+//понял , зачем нужен return
 
 mapCheckUp(itemsMap)
 
