@@ -61,52 +61,78 @@ function mapCheckUp(mapName){
         console.log(item)
 }
 
+// mapCheckUp(itemsMap)
+
+
 //!!
 
-function createTest(){
-    let testValue = 'Заработало!!!'
-    return testValue
+// function createTest(){
+//     let testValue = 'Заработало!!!'
+//     return testValue
 
-}
+// }
 
-function useTest(){
-    let usableValue = createTest()
-    alert(usableValue)
-}
+// function useTest(){
+//     let usableValue = createTest()
+//     alert(usableValue)
+// }
 
-useTest()
+// useTest()
+
+// function testConstant() {
+//     let testValue = 123456
+//     return testValue
+// }
+
+// function useConstant(){
+//     let testValue = testConstant()
+//     console.log (testValue)
+// }
+
+// useConstant()
 
 //!!
 //ПРИМ: Тут я использовал ГПТ , так как дурак ебанат сел за работу слишком поздно, и времени нет.
 //Но самое главное - я немного лучше разобрался с работой перенных (а точнее их областями видимости) и
 //понял , зачем нужен return
-
-mapCheckUp(itemsMap)
-
 let newDivSpoilerState = false
 
-newDiv.addEventListener('mouseover' , ()=> {
+function createSpoiler(){
     let newDivSpoiler = document.createElement("div")
     if (newDivSpoilerState == false){
-        newDivSpoiler.innerHTML = '<div class = "block-description"><p>Это элемент, вставленный при помощи Java Script</p></div>'
+        newDivSpoiler.innerHTML = '<div class = "block-description"><p>Это элемент, вставленный при помощи Java Script '+ typeof(newDivSpoiler) +'</p></div>'
         newDiv.after(newDivSpoiler)
-        newDivSpoilerState == true
+        newDivSpoilerState = true
+        return newDivSpoilerState
     }
 
     else{
-        return
-    }
-})
-
-function createSpoiler(blockName , blockDescription) {
-    let blockNameSpoiler = document.createElement("div")
-    let spoilerState = false
-    if (spoilerState == false) {
-        blockNameSpoiler.innerHTML = '<div class = "block-description"><p> ' + blockDescription + '</p></div>'
-        blockName.after(blockNameSpoiler)
-        spoilerState == true
+        console.log('Невозможно создать спойлер!')
     }
 }
+
+
+
+newDiv.addEventListener('mouseover' , ()=> {
+    createSpoiler()
+    console.log('Спойлер создан!')
+})
+
+// newDiv.addEventListener('mouseleave', () => {
+//     if (newDivSpoilerState == true){
+//         newDiv.remove(newDivSpoiler)
+//     }
+// })
+
+// function createSpoiler(blockName , blockDescription) {
+//     let blockNameSpoiler = document.createElement("div")
+//     let spoilerState = false
+//     if (spoilerState == false) {
+//         blockNameSpoiler.innerHTML = '<div class = "block-description"><p> ' + blockDescription + '</p></div>'
+//         blockName.after(blockNameSpoiler)
+//         spoilerState == true
+//     }
+// }
 
 createSpoiler(testPishka , 'Это тестовая пишка , и я её создал через функцию')
 
