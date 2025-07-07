@@ -95,28 +95,11 @@ function mapCheckUp(mapName){
 //ПРИМ: Тут я использовал ГПТ , так как дурак ебанат сел за работу слишком поздно, и времени нет.
 //Но самое главное - я немного лучше разобрался с работой перенных (а точнее их областями видимости) и
 //понял , зачем нужен return
-let newDivSpoilerState = false
-
-function createSpoiler(){
-    let newDivSpoiler = document.createElement("div")
-    if (newDivSpoilerState == false){
-        newDivSpoiler.innerHTML = '<div class = "block-description"><p>Это элемент, вставленный при помощи Java Script '+ typeof(newDivSpoiler) +'</p></div>'
-        newDiv.after(newDivSpoiler)
-        newDivSpoilerState = true
-        return newDivSpoilerState
-    }
-
-    else{
-        console.log('Невозможно создать спойлер!')
-    }
-}
 
 
 
-newDiv.addEventListener('mouseover' , ()=> {
-    createSpoiler()
-    console.log('Спойлер создан!')
-})
+
+
 
 // newDiv.addEventListener('mouseleave', () => {
 //     if (newDivSpoilerState == true){
@@ -124,21 +107,24 @@ newDiv.addEventListener('mouseover' , ()=> {
 //     }
 // })
 
-// function createSpoiler(blockName , blockDescription) {
-//     let blockNameSpoiler = document.createElement("div")
-//     let spoilerState = false
-//     if (spoilerState == false) {
-//         blockNameSpoiler.innerHTML = '<div class = "block-description"><p> ' + blockDescription + '</p></div>'
-//         blockName.after(blockNameSpoiler)
-//         spoilerState == true
-//     }
-// }
 
-createSpoiler(testPishka , 'Это тестовая пишка , и я её создал через функцию')
 
 // newDiv.addEventListener('mouseleave', ()=> {
 //     newDivSpoiler.remove()
 // })
 
+let spoilerStateCollection = []
 
+function setSpoilerState(elementName = '' , state = false) {
+    let spoilerState = state
+    console.log('Состояние спойлера элемента ' + String(elementName) + ' : ' + spoilerState)
+    spoilerStateCollection.push([elementName + ' : ' +state])
+}
+
+setSpoilerState('newDiv')
+setSpoilerState('testPishka' , true)
+setSpoilerState('test-button')
+for (let state of spoilerStateCollection){
+    console.log(state)
+}
 //==========================================================================================================
