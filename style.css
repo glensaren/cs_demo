@@ -53,3 +53,20 @@ main *{
     display: inline-block;
     margin: 0;
 }
+
+.map-usability-tester{
+    background-color: beige;
+}
+
+.map-usability-tester > *{
+    border: 1px solid burlywood;
+    background-color: bisque;
+}
+
+footer{
+    background-color: beige;
+}
+
+.signature{
+    text-align: center;
+}

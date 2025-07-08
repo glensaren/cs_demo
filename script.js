@@ -1,10 +1,8 @@
-let itemsMap = new Map
-const testPishka = document.querySelector('.test-pishka')
-
-
-function addMapItem(task , desc){
-    itemsMap.set(task , desc)
-}
+// let itemsMap = new Map
+// const testPishka = document.querySelector('.test-pishka')
+const galleryBox = document.querySelector('.gallery')
+const audioPlayerBox = document.querySelector('.audio-player')
+const feedbackFormBox = document.querySelector('.feedback-form')
 
 
 //0) вспоминаю, что такое append и alert + selector
@@ -19,7 +17,7 @@ let newDiv = document.createElement("div")
 newDiv.innerHTML = "<h1>Это вставленный текст</h1>"
 newDiv.className = "newDiv"
 mainBox.append(newDiv)
-addMapItem(newDiv , 'Это элемент, вставленный в DOM при помощи Java Script')
+// addMapItem(newDiv , 'Это элемент, вставленный в DOM при помощи Java Script')
 
 //==========================================================================================================
 
@@ -44,7 +42,7 @@ document.addEventListener("keydown" , (e)=> {
     keyLog.textContent += `${e.key}`
 })
 
-addMapItem(keyLog , 'Это виртуальная клавиатура , реализованная через слушатель событий keyDown')
+// addMapItem(keyLog , 'Это виртуальная клавиатура , реализованная через слушатель событий keyDown')
 
 //==========================================================================================================
 
@@ -79,17 +77,17 @@ function mapCheckUp(mapName){
 
 // useTest()
 
-// function testConstant() {
-//     let testValue = 123456
-//     return testValue
-// }
+function testConstant() {
+    let testValue = 123456
+    return testValue
+}
 
-// function useConstant(){
-//     let testValue = testConstant()
-//     console.log (testValue)
-// }
+function useConstant(){
+    let testValue = testConstant()
+    console.log (testValue)
+}
 
-// useConstant()
+useConstant()
 
 //!!
 //ПРИМ: Тут я использовал ГПТ , так как дурак ебанат сел за работу слишком поздно, и времени нет.
@@ -127,4 +125,22 @@ setSpoilerState('test-button')
 for (let state of spoilerStateCollection){
     console.log(state)
 }
+
+function createSpoiler(elementName , spoilerText){
+    let spoiler = document.createElement('div')
+    spoiler.textContent = spoilerText
+    spoiler.classList.add('block-description')
+}
+
+function setMapItem(mapName , task , desk){
+    mapName.set(task, desk)
+}
+
+let blockMap = new Map
+setMapItem(blockMap , newDiv , 'Это блок кода, вставленный с использованием JS')
+setMapItem(blockMap , galleryBox , 'Это фото-галлерея , реализованная при помощи Fetch API')
+setMapItem(blockMap , audioPlayerBox , 'Это аудио-плейер , играющий музыку с локального сервера')
+setMapItem(blockMap , feedbackFormBox , 'Это форма обратной реакции , которую обрабатывает и валидирует JS')
+// function appendSpoiler(elementName, spoilerText)
+
 //==========================================================================================================
