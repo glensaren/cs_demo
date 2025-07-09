@@ -130,17 +130,28 @@ function createSpoiler(elementName , spoilerText){
     let spoiler = document.createElement('div')
     spoiler.textContent = spoilerText
     spoiler.classList.add('block-description')
+    elementName.after(spoiler)
 }
 
-function setMapItem(mapName , task , desk){
-    mapName.set(task, desk)
+function fillTaskMap(task , desk){
+    taskMap.set(task, desk)
 }
 
-let blockMap = new Map
-setMapItem(blockMap , newDiv , 'Это блок кода, вставленный с использованием JS')
-setMapItem(blockMap , galleryBox , 'Это фото-галлерея , реализованная при помощи Fetch API')
-setMapItem(blockMap , audioPlayerBox , 'Это аудио-плейер , играющий музыку с локального сервера')
-setMapItem(blockMap , feedbackFormBox , 'Это форма обратной реакции , которую обрабатывает и валидирует JS')
+let taskMap = new Map
+fillTaskMap(newDiv , 'Это блок кода, вставленный с использованием JS')
+fillTaskMap(galleryBox , 'Это фото-галлерея , реализованная при помощи Fetch API')
+fillTaskMap(audioPlayerBox , 'Это аудио-плейер , играющий музыку с локального сервера')
+fillTaskMap(feedbackFormBox , 'Это форма обратной реакции , которую обрабатывает и валидирует JS')
 // function appendSpoiler(elementName, spoilerText)
+let counter = 0
+for (const [task,desc] of taskMap){
+    counter ++
+    console.log(counter + '.')
+    console.log(task)
+    console.log(desc)
+}
 
+for (const [task,desc] of taskMap){
+    createSpoiler(task,desc)
+}
 //==========================================================================================================
