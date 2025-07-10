@@ -16,8 +16,9 @@ header{
     border-bottom: 2px solid black;
 }
 
-header p{
+.entrance-text{
     margin: 0;
+    margin-bottom: 1rem;
     line-height: .9rem;
     text-align: center;
     font-size: 2.2rem;
@@ -47,7 +48,8 @@ main *{
 .block-description{
     border: 1px solid black;
     font-size: 1.6rem;
-    background-color: cornflowerblue;
+    background-color: rgb(75, 109, 173) !important;
+    color: white;
 }
 
 .block-description p, .block-description{
@@ -59,6 +61,12 @@ main *{
     background-color: beige;
 }
 
+.feedback-form{
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+}
+
 .map-usability-tester > *{
     border: 1px solid burlywood;
     background-color: bisque;
@@ -67,8 +75,19 @@ main *{
 
 footer{
     background-color: beige;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .signature{
     text-align: center;
 }
+
+.spoiler-switchbox p , .spoiler-switch{
+    margin: 0;
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+}
+

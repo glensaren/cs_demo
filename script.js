@@ -131,6 +131,11 @@ function createSpoiler(elementName , spoilerText){
     spoiler.textContent = spoilerText
     spoiler.classList.add('block-description')
     elementName.after(spoiler)
+    // return spoiler
+    // ОШИБКА! (1)
+    // script.js:133 Uncaught TypeError: Cannot read properties of undefined (reading 'after')
+    // at createSpoiler (script.js:133:17)
+    // at script.js:160:19
 }
 
 function fillTaskMap(task , desk){
@@ -139,7 +144,7 @@ function fillTaskMap(task , desk){
 
 let taskMap = new Map
 fillTaskMap(newDiv , 'Это блок кода, вставленный с использованием JS')
-fillTaskMap(galleryBox , 'Это фото-галлерея , реализованная при помощи Fetch API')
+fillTaskMap(galleryBox , 'Это фото-галлерея , реализованная при помощи Fetch API. Ахаххаха лох нихуя тут нет я тупой и не умею это делать:0')
 fillTaskMap(audioPlayerBox , 'Это аудио-плейер , играющий музыку с локального сервера')
 fillTaskMap(feedbackFormBox , 'Это форма обратной реакции , которую обрабатывает и валидирует JS')
 // function appendSpoiler(elementName, spoilerText)
@@ -149,9 +154,22 @@ for (const [task,desc] of taskMap){
     console.log(counter + '.')
     console.log(task)
     console.log(desc)
+    task.addEventListener('click', ()=>{
+        console.log('вы нажали на ' + task.className)
+    })
 }
 
 for (const [task,desc] of taskMap){
     createSpoiler(task,desc)
+    // let spoiler = createSpoiler()
+    // ОШИБКА! (1)
 }
+
+function testSpoiler(text){
+    let spoiler = text
+    return spoiler
+}
+
+let textSpoiler = testSpoiler('Это пробный текст , используемый для проверки работы return. Его на странице вы не увидите :/')
+console.log(textSpoiler)
 //==========================================================================================================
