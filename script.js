@@ -172,4 +172,23 @@ function testSpoiler(text){
 
 let textSpoiler = testSpoiler('Это пробный текст , используемый для проверки работы return. Его на странице вы не увидите :/')
 console.log(textSpoiler)
+
+let textLibrary = new Map([
+        [0 , ''],
+        [1,''],
+        [2,'Это второй блок словаря'],
+        [3,''],
+        [4,''],
+        [5,''],
+        [6,''],
+        [7,''],
+        [8,''],
+        [9,''],
+    ])
+const textGeneratorButton = document.querySelector('.text-generator-button')
+const textGeneratorDisplay = document.querySelector('.text-generator-display')
+textGeneratorButton.addEventListener('click' , ()=> {
+    let order = Math.floor(10 * Math.random())
+    textGeneratorDisplay.textContent = (textLibrary.get(order))
+})
 //==========================================================================================================
