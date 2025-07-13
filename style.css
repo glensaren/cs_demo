@@ -16,6 +16,21 @@ header{
     border-bottom: 2px solid black;
 }
 
+.header-flex-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.admin-login input{
+    width: 4rem;
+    display: inline-block;
+}
+
+.admin-login p{
+    display: inline-block;
+}
+
 .entrance-text{
     margin: 0;
     margin-bottom: 1rem;
