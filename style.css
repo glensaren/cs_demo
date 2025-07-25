@@ -4,15 +4,43 @@
 
 :root{
     font-size: 62.5%;
+    --header-color : aliceblue;
+    --bg-color :white;
+    --font-color :black;
+    --block-description-bg: rgb(75, 109, 173) ;
+    --map-UT-bg: beige;
+    --form-bg: white;
+}
+
+.dark-theme{
+    --header-color : rgb(54, 56, 57);
+    --bg-color :rgb(28, 28, 28);
+    --font-color :rgb(219, 219, 219);
+    --block-description-bg: rgb(20, 0, 66);
+    --map-UT-bg: rgb(92, 92, 80);
+    --form-bg:rgb(66, 52, 52);
 }
 
 body{
     margin: 0;
+    background-color: var(--bg-color);
+}
+
+body p , body h1 , body h2{
+    color: var(--font-color)
+}
+
+input[type="text"]{
+    background-color: var(--form-bg);
+}
+
+button{
+    background-color: var(--bg-color);
+    color: var(--font-color);
 }
 
 header{
-    height: 5rem;
-    background-color: aliceblue;
+    background-color: var(--header-color);
     border-bottom: 2px solid black;
 }
 
@@ -27,14 +55,15 @@ header{
     justify-content: space-between;
 }
 
-.admin-login input{
-    width: 4rem;
-    display: inline-block;
+.switch-array{
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    border-right: .2rem solid black;
 }
 
-.basic-text{
-    display: inline-block;
-    font-size: 2.4rem;
+.switchbox.admin input{
+    width: 5rem;
 }
 
 @keyframes glow {
@@ -61,10 +90,11 @@ header{
 
 .test-pishka{
     background-color: rgb(112, 0, 0);
-    color: white;
+    color: var(--font-color);
     animation: glow;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+    font-size: 2rem;
 }
 
 .entrance-text{
@@ -99,8 +129,8 @@ main *{
 .block-description{
     border: 1px solid black;
     font-size: 1.6rem;
-    background-color: rgb(75, 109, 173) !important;
-    color: white;
+    background-color: var(--map-UT-bg);
+    color: var(--font-color)
 }
 
 .block-description p, .block-description{
@@ -109,7 +139,8 @@ main *{
 }
 
 .map-usability-tester{
-    background-color: beige;
+    background-color: var(--map-UT-bg);
+    color: var(--font-color);
 }
 
 .feedback-form{
@@ -120,7 +151,7 @@ main *{
 
 .map-usability-tester > *{
     border: 1px solid burlywood;
-    background-color: bisque;
+    background-color: var(--map-UT-bg);
     margin-bottom: 1rem;
 }
 
@@ -137,7 +168,7 @@ footer{
     font-size: 1rem;
 }
 
-.spoiler-switchbox p , .spoiler-switch{
+.switchbox p , .switch{
     margin: 0;
     display: inline-block;
     font-size: 1.6rem;
@@ -149,6 +180,7 @@ footer{
 }
 
 .text-generator-display{
-    width: 100%;
-    height: 9rem;
+    width: 70rem;
+    height: 5rem;
+    color: var(--font-color);
 }

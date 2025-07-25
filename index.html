@@ -4,23 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script>
+        const themeSwitch = document.querySelector('.theme-switch')
+        if (localStorage.getItem('dark theme') === 'on'){
+            document.documentElement.classList.add('dark-theme')
+        }
+    </script>
     <title>cs+demo</title>
 </head>
 <body>
     <header>
         <section class="header-flex-wrapper">        
-            <label for="switch" class="spoiler-switchbox">
-                <p class="basic-text">Отображение спойлеров здесь:</p>
-                <input type="checkbox" name="switch" id=""switch class="spoiler-switch">
-            </label>
+            
+            <div class="switch-array">
+                <label for="spoiler-switch" class="switchbox">
+                    <p class="basic-text">Отображение спойлеров здесь:</p>
+                    <input type="checkbox" name="spoiler-switch" class="spoiler-switch">
+                </label>
+
+                <label for="theme-switch" class="switchbox">
+                    <p>Ночная тема</p>
+                    <input type="checkbox" class="theme-switch">
+                </label>
+
+                <label for="admin-switch" class="switchbox admin">
+                    <p class="basic-text">ключ админ.:</p>
+                    <input type="password" name="admin-switch" >
+                    <button type="submit">][</button>
+                </label>
+            </div>
 
             <p class="entrance-text">Здесь я учу Java Script. Наслаждайся.</p>
 
-            <label for="admin" class="admin-login">
-                <p class="basic-text">ключ админ.:</p>
-                <input type="password" name="admin" id="admin">
-                <button type="submit">][</button>
-        </label>
+            
         </section>
     </header>
 
@@ -40,13 +56,13 @@
 
             <form action="" class="feedback-form" novalidate>
                 <p>А тут у нас можно оставить отзыв на работу автора сайта</p>
-                <textarea name="" id="" placeholder="хуй ты угадал" disabled></textarea>
+                <input type="text" name="" id="" placeholder="хуй ты угадал" disabled></input>
                 <button type="submit">Запульнуть</button>
             </form>
         </div>
 
         <button class="text-generator-button">Получить текст</button>
-        <input type="text" class="text-generator-display">
+        <input type="text" class="text-generator-display" disabled>
 
         <script src="script.js"></script>
     </main>

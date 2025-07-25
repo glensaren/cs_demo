@@ -128,7 +128,7 @@ for (let state of spoilerStateCollection){
 
 function createSpoiler(elementName , spoilerText){
     let spoiler = document.createElement('div')
-    spoiler.textContent = spoilerText
+    spoiler.innerHTML = '<p>' + spoilerText + '</p>'; 
     spoiler.classList.add('block-description')
     elementName.after(spoiler)
     // return spoiler
@@ -220,3 +220,19 @@ const Waffle = {
 
 console.log('hello world')
 Waffle.love()
+
+//==========================================================================================================
+// 5)Переключатель темы
+const themeSwitch =  document.querySelector(".theme-switch")
+themeSwitch.addEventListener('click', ()=>{
+    if (themeSwitch.checked == true){
+        document.documentElement.classList.add('dark-theme')
+        localStorage.setItem('dark theme' , 'on')
+    }
+
+    else{
+        document.documentElement.classList.remove('dark-theme')
+        localStorage.setItem('dark theme' , 'off')
+    }
+})
+
