@@ -7,7 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="initial block"></div>
+    <form class="builder-form">
+        <label for="rowAmount">
+            <p>Введите количество рядов:</p>
+            <input type="number" name="rowAmount" id="amount">
+        </label>
+
+        <label for="columnAmount">
+            <p>Введите количество стобцов:</p>
+            <input type="number" name="columnAmount" id="amount">
+        </label>
+
+        <div class="button-block">
+            <button type="submit">Создать</button>
+            <button type="reset" class="builder-erase-button">Стереть</button>  
+        </div>
+    </form>
+
+    <section class="builder-display"></section>
 </body>
 <script src="builder.js"></script>
 </html>
+

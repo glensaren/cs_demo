@@ -11,8 +11,19 @@ body{
 }
 
 .block{
-    width: 10rem;
+    display: inline-block;
+    width: 1rem;
     aspect-ratio: 1/1;
-    border: 1rem solid black;
+    border: .05rem solid black;
     background-color: red;
+}
+
+form{
+    display: flex;
+    width: 15rem;
+    flex-direction: column;
+}
+
+.builder-display{
+    line-height: 0;
 }
