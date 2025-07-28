@@ -236,3 +236,4 @@ themeSwitch.addEventListener('click', ()=>{
     }
 })
 
+//Текст , вставленный через bash . пока что только эмулятор
