@@ -8,6 +8,7 @@
 
 body{
     margin: 0;
+    padding: 2rem 1.5rem;
 }
 
 .block{
@@ -26,7 +27,7 @@ body{
 }
 
 .purple.block{
-    background-color: purple;
+    background-color: rgb(163, 0, 163);
 }
 
 .black.block{
@@ -34,16 +35,36 @@ body{
     /* border: .1rem solid white */
 }
 
+.golden.block{
+    background-color: gold;
+}
+
 form{
-    display: flex;
-    width: 15rem;
+    font-size: 2rem;
+    display: inline-block;
+    /* width: 25rem; */
     flex-direction: column;
+    /* border: .1rem solid black; */
+    margin-bottom: 2rem;
+    padding: .5rem;
+}
+
+form p{
+    margin: 0;
 }
 
 .builder-display{
     line-height: 0;
+    border-top: .3rem solid black;
 }
 
-.button-block{
-    margin-bottom: 2rem;
+.information-block{
+    display: inline-block;
+    font-size: 2rem;
+    /* border: .1rem solid black; */
+    vertical-align: top;
+}
+
+.information-block p{
+    margin: 0;
 }

@@ -2,6 +2,9 @@ const builderEraseButton = document.querySelector('.builder-erase-button')
 const builderDisplay = document.querySelector('.builder-display')
 const evalButton = document.querySelector('.eval-button')
 const builderForm = document.querySelector('.builder-form')
+
+const blockAmountDisplay = document.querySelector('.block-amount-display')
+const errorDisplay = document.querySelector('.error-display')
 let rows = 0
 builderForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -14,7 +17,11 @@ builderForm.addEventListener('submit', (e) => {
     while (i < rows){
         let block = document.createElement('div')
         block.classList.add('block')
-        if (i % 3 == 0){
+        if (Math.random().toFixed(2) == 0.44){
+            block.classList.add('golden')
+        }
+        
+        else if (i % 3 == 0){
             block.classList.add('green')
         }
 
@@ -48,8 +55,8 @@ evalButton.addEventListener('click', ()=>{
         summary = summary + parseInt(exactNumber)
     }
     console.log(summary)
-    console.log(`Количество элементов: ${rows}`)
-    console.log(`Среднее значение: ${(summary/(rows*1000)).toFixed(10)}`)
+    blockAmountDisplay.textContent = `Количество элементов: ${rows}`
+    errorDisplay.textContent = `Среднее значение: ${(summary/(rows*1000)).toFixed(10)}`
 })
 
 // function tester(modifier = 1){
