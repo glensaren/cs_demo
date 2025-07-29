@@ -12,12 +12,26 @@ body{
 
 .block{
     display: inline-block;
-    width: 8rem;
+    width: 2rem;
     aspect-ratio: 1/1;
-    border: .05rem solid black;
+    border: .02rem solid black;
     background-color: red;
     text-align: center;
-    padding-top: 4rem;
+    padding-top: 1rem;
+    font-size: .5rem;
+}
+
+.green.block{
+    background-color: green;
+}
+
+.purple.block{
+    background-color: purple;
+}
+
+.black.block{
+    background-color: black;
+    /* border: .1rem solid white */
 }
 
 form{

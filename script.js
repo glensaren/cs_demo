@@ -4,7 +4,8 @@ const galleryBox = document.querySelector('.gallery')
 const audioPlayerBox = document.querySelector('.audio-player')
 const feedbackFormBox = document.querySelector('.feedback-form')
 
-
+import { visabilityTester } from "./bugging"
+visabilityTester()
 //0) вспоминаю, что такое append и alert + selector
 
 const testButton = document.querySelector('.test-button')
