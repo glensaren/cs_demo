@@ -27,7 +27,7 @@ body{
 }
 
 .purple.block{
-    background-color: rgb(163, 0, 163);
+    background-color: #a300a3;
 }
 
 .black.block{
@@ -55,7 +55,7 @@ form p{
 
 .builder-display{
     line-height: 0;
-    border-top: .3rem solid black;
+    border-top: .3rem solid #000000;
 }
 
 .information-block{

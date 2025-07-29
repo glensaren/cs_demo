@@ -17,7 +17,11 @@ builderForm.addEventListener('submit', (e) => {
     while (i < rows){
         let block = document.createElement('div')
         block.classList.add('block')
-        if (Math.random().toFixed(2) == 0.44){
+        if (Math.random().toFixed(1) == Math.random().toFixed(1)){
+            block.classList.add('black')
+        }
+        
+        else if (Math.random().toFixed(2) == 0.44){
             block.classList.add('golden')
         }
         
@@ -27,10 +31,6 @@ builderForm.addEventListener('submit', (e) => {
 
         else if (i % 2 == 0 && i % 3 != 0){
             block.classList.add('purple')
-        }
-
-        else if (Math.random().toFixed(1) == Math.random().toFixed(1)){
-            block.classList.add('black')
         }
         block.textContent = Math.random().toFixed(2)
         builderDisplay.append(block)
@@ -44,6 +44,8 @@ builderForm.addEventListener('submit', (e) => {
 
 builderEraseButton.addEventListener('click' , ()=> { 
     builderDisplay.innerHTML = ''
+    blockAmountDisplay.textContent = ''
+    errorDisplay.textContent = ''
 })
 
 let summary = 0
@@ -71,4 +73,9 @@ evalButton.addEventListener('click', ()=>{
 
 // СУКА ЧТО ПРОИСХОДИТ БЛЯТЬ С КОДОМ В ЭТОЙ ХУЙНЕ???!!
 // НУ НАХУЙ Я БЛЯТЬ ПОШЕЛ КУРИТЬ И СПАТЬ. РАЗБИРАЙТЕСЬ САМИ!
+//FIXED :manincoolglasses :thumbup
+const randomNumber = (Math.random() * 16777215).toFixed(0)
+const hex = parseInt(randomNumber, 10).toString(16)
+// alert(hex)
 
+builderForm.style.background = '#' + hex
