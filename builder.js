@@ -3,6 +3,8 @@ const builderDisplay = document.querySelector('.builder-display')
 const evalButton = document.querySelector('.eval-button')
 const builderForm = document.querySelector('.builder-form')
 
+
+
 const blockAmountDisplay = document.querySelector('.block-amount-display')
 const errorDisplay = document.querySelector('.error-display')
 let rows = 0
@@ -16,23 +18,27 @@ builderForm.addEventListener('submit', (e) => {
     let i = 0
     while (i < rows){
         let block = document.createElement('div')
+        const randomNumber = Math.random()
+        const number = (randomNumber * 16777215).toFixed(5)
+        const hex = parseInt(number, 10).toString(16)
         block.classList.add('block')
-        if (Math.random().toFixed(1) == Math.random().toFixed(1)){
-            block.classList.add('black')
-        }
+        block.style.background = '#' + hex
+        // if (Math.random().toFixed(1) == Math.random().toFixed(1)){
+        //     block.classList.add('black')
+        // }
         
-        else if (Math.random().toFixed(2) == 0.44){
-            block.classList.add('golden')
-        }
+        // else if (Math.random().toFixed(2) == 0.44){
+        //     block.classList.add('golden')
+        // }
         
-        else if (i % 3 == 0){
-            block.classList.add('green')
-        }
+        // else if (i % 3 == 0){
+        //     block.classList.add('green')
+        // }
 
-        else if (i % 2 == 0 && i % 3 != 0){
-            block.classList.add('purple')
-        }
-        block.textContent = Math.random().toFixed(2)
+        // else if (i % 2 == 0 && i % 3 != 0){
+        //     block.classList.add('purple')
+        // }
+        block.textContent = randomNumber.toFixed(5)
         builderDisplay.append(block)
         i++
     }
@@ -74,8 +80,6 @@ evalButton.addEventListener('click', ()=>{
 // СУКА ЧТО ПРОИСХОДИТ БЛЯТЬ С КОДОМ В ЭТОЙ ХУЙНЕ???!!
 // НУ НАХУЙ Я БЛЯТЬ ПОШЕЛ КУРИТЬ И СПАТЬ. РАЗБИРАЙТЕСЬ САМИ!
 //FIXED :manincoolglasses :thumbup
-const randomNumber = (Math.random() * 16777215).toFixed(0)
-const hex = parseInt(randomNumber, 10).toString(16)
+
 // alert(hex)
 
-builderForm.style.background = '#' + hex
