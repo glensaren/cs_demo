@@ -23,7 +23,12 @@ builderForm.addEventListener('submit', (e) => {
         const hex = parseInt(number, 10).toString(16)
         block.classList.add('block')
         block.style.background = '#' + hex
-        // if (Math.random().toFixed(1) == Math.random().toFixed(1)){
+        // block.textContent = randomNumber.toFixed(5)
+        builderDisplay.append(block)
+        i++
+    }
+
+// if (Math.random().toFixed(1) == Math.random().toFixed(1)){
         //     block.classList.add('black')
         // }
         
@@ -38,12 +43,6 @@ builderForm.addEventListener('submit', (e) => {
         // else if (i % 2 == 0 && i % 3 != 0){
         //     block.classList.add('purple')
         // }
-        block.textContent = randomNumber.toFixed(5)
-        builderDisplay.append(block)
-        i++
-    }
-
-
     
 }
 )
@@ -82,4 +81,36 @@ evalButton.addEventListener('click', ()=>{
 //FIXED :manincoolglasses :thumbup
 
 // alert(hex)
+
+// function numberArrayGenerator(topNumber = 1){
+//     let numberArray = []
+//     let i = 0
+//     while (i < topNumber){
+//         numberArray.push(i.toFixed(4))
+//         i = i + 0.0001
+//     }
+//     return numberArray
+// }
+
+// const numberArray =  numberArrayGenerator()
+
+// for (const number of numberArray){
+//     const readyNumber = number * 16777215
+//     let hex = parseInt(readyNumber, 10).toString(16)
+//     const block = document.createElement('div');
+//     block.classList.add('block')
+//     block.style.background = '#' + hex
+//     block.textContent = hex
+//     builderDisplay.append(block)
+// }
+
+document.addEventListener("keydown" , (e)=> {
+    if (e.key == "Shift"){
+        window.scroll({
+            top: 5000,
+            bottom: 0,
+            behavior: "smooth",
+        })
+    }
+})
 
