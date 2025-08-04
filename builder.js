@@ -104,13 +104,30 @@ evalButton.addEventListener('click', ()=>{
 //     builderDisplay.append(block)
 // }
 
+
+
 document.addEventListener("keydown" , (e)=> {
-    if (e.key == "Shift"){
+    const rect = document.body.getBoundingClientRect()
+    const height = rect.height.toFixed(0)
+
+    if (e.code == "ShiftLeft"){
         window.scroll({
-            top: 5000,
+            top: height,
             bottom: 0,
             behavior: "smooth",
         })
     }
+
+    else if(e.code == "ShiftRight"){
+        window.scroll({
+            top: 0,
+            bottom: height,
+            behavior: 'smooth',
+        })
+    }
 })
 
+document.addEventListener('keydown' , (e)=> {
+    console.log(`event key = ${e.key}`)
+    console.log(`event code = ${e.code}`)
+})
