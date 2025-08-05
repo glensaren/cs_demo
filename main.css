@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+    --header-color : aliceblue;
+    --bg-color :white;
+    --font-color :black;
+    --block-description-bg: rgb(75, 109, 173) ;
+    --map-UT-bg: beige;
+    --form-bg: white;
+}
+
+.dark-theme{
+    --header-color : rgb(54, 56, 57);
+    --bg-color :rgb(28, 28, 28);
+    --font-color :rgb(219, 219, 219);
+    --block-description-bg: rgb(20, 0, 66);
+    --map-UT-bg: rgb(92, 92, 80);
+    --form-bg:rgb(66, 52, 52);
+}
+
+body{
+    margin: 0;
+}
+
+main{
+    padding: 1.5rem 2rem;
+    margin: 0;
+}
+
+header{
+    background-color: var(--header-color);
+    border-bottom: 2px solid black;
+}
+
+.header-flex-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.switch-array{
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    border-right: .2rem solid black;
+}
+
+.switchbox.admin input{
+    width: 5rem;
+}
+
+.switchbox p , .switch{
+    margin: 0;
+    display: inline-block;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+}
+
+.entrance-text{
+    margin: 0;
+    margin-bottom: 1rem;
+    line-height: .9rem;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+
+
+
+
+
+
+footer{
+    background-color: beige;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: ce;
+    bottom: 0;
+    width: 100%;
+}
+
+.link{
+    text-decoration: none;
+    font-size: 3rem;
+    text-align: center;
+    font-family: sans-serif;
+    color: #DDFFDD;
+    background-color: #77AA;
+}

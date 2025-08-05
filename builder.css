@@ -1,15 +1,6 @@
-*{
-    box-sizing: border-box;
-}
-
-:root{
-    font-size: 62.5%;
-}
-
-body{
-    margin: 0;
+/* body{
     padding: 2rem 1.5rem;
-}
+} */
 
 .block{
     display: inline-block;
@@ -67,4 +58,8 @@ form p{
 
 .information-block p{
     margin: 0;
+}
+
+header.off , footer.off{
+    display: none;
 }

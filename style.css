@@ -1,28 +1,4 @@
-*{
-    box-sizing: border-box;
-}
-
-:root{
-    font-size: 62.5%;
-    --header-color : aliceblue;
-    --bg-color :white;
-    --font-color :black;
-    --block-description-bg: rgb(75, 109, 173) ;
-    --map-UT-bg: beige;
-    --form-bg: white;
-}
-
-.dark-theme{
-    --header-color : rgb(54, 56, 57);
-    --bg-color :rgb(28, 28, 28);
-    --font-color :rgb(219, 219, 219);
-    --block-description-bg: rgb(20, 0, 66);
-    --map-UT-bg: rgb(92, 92, 80);
-    --form-bg:rgb(66, 52, 52);
-}
-
 body{
-    margin: 0;
     background-color: var(--bg-color);
 }
 
@@ -39,31 +15,9 @@ button{
     color: var(--font-color);
 }
 
-header{
-    background-color: var(--header-color);
-    border-bottom: 2px solid black;
-}
-
 @font-face {
     font-family: 'Lucy Said Okay';
     src: url('sources/font/LucySaidOkPersonalUse.ttf');
-}
-
-.header-flex-wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.switch-array{
-    display: flex;
-    flex-direction: column;
-    font-size: 1rem;
-    border-right: .2rem solid black;
-}
-
-.switchbox.admin input{
-    width: 5rem;
 }
 
 @keyframes glow {
@@ -95,23 +49,6 @@ header{
     animation-duration: 3s;
     animation-iteration-count: infinite;
     font-size: 2rem;
-}
-
-.entrance-text{
-    margin: 0;
-    margin-bottom: 1rem;
-    line-height: .9rem;
-    text-align: center;
-    font-size: 2.2rem;
-}
-
-main{
-    padding: 1.5rem 2rem;
-}
-
-main *{
-    margin: 0;
-    /* margin-bottom: 2rem; */
 }
 
 .newDiv{
@@ -155,24 +92,10 @@ main *{
     margin-bottom: 1rem;
 }
 
-footer{
-    background-color: beige;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
 .signature{
     text-align: center;
     font-family: 'Lucy Said Okay';
     font-size: 1rem;
-}
-
-.switchbox p , .switch{
-    margin: 0;
-    display: inline-block;
-    font-size: 1.6rem;
-    line-height: 1.9rem;
 }
 
 .text-generator-button{
