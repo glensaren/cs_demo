@@ -4,8 +4,7 @@ const galleryBox = document.querySelector('.gallery')
 const audioPlayerBox = document.querySelector('.audio-player')
 const feedbackFormBox = document.querySelector('.feedback-form')
 
-import { visabilityTester } from "./bugging"
-visabilityTester()
+
 //0) вспоминаю, что такое append и alert + selector
 
 const testButton = document.querySelector('.test-button')
@@ -131,6 +130,7 @@ function createSpoiler(elementName , spoilerText){
     let spoiler = document.createElement('div')
     spoiler.innerHTML = '<p>' + spoilerText + '</p>'; 
     spoiler.classList.add('block-description')
+    spoiler.classList.add('testclass')
     elementName.after(spoiler)
     // return spoiler
     // ОШИБКА! (1)
@@ -145,7 +145,7 @@ function fillTaskMap(task , desk){
 
 let taskMap = new Map
 fillTaskMap(newDiv , 'Это блок кода, вставленный с использованием JS')
-fillTaskMap(galleryBox , 'Это фото-галлерея , реализованная при помощи Fetch API. Ахаххаха лох нихуя тут нет я тупой и не умею это делать:0')
+fillTaskMap(galleryBox , 'Это фото-галлерея , реализованная при помощи Fetch API. ')
 fillTaskMap(audioPlayerBox , 'Это аудио-плейер , играющий музыку с локального сервера')
 fillTaskMap(feedbackFormBox , 'Это форма обратной реакции , которую обрабатывает и валидирует JS')
 // function appendSpoiler(elementName, spoilerText)

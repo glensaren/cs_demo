@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="builder.css">
+    <link rel="stylesheet" href="sources/styles/main.css">
+    <link rel="stylesheet" href="sources/styles/builder.css">
     <title>Document</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
 
                 <label for="admin-switch" class="switchbox admin">
                     <p class="basic-text">ключ админ.:</p>
-                    <input type="password" name="admin-switch" >
+                    <input type="password" name="admin-switch">
                     <button type="submit">][</button>
                 </label>
             </div>
@@ -36,13 +36,13 @@
 
     <form class="builder-form">
         <label for="rowAmount">
-            <p>Введите количество рядов:</p>
-            <input type="number" name="rowAmount" id="amount">
+            <p class="plain-text">Введите количество рядов:</p>
+            <input type="number" name="rowAmount" id="rowAmount" required>
         </label>
 
         <label for="columnAmount">
-            <p>Введите количество стобцов:</p>
-            <input type="number" name="columnAmount" id="amount">
+            <p class="plain-text">Введите количество стобцов:</p>
+            <input type="number" name="columnAmount" id="columnAmount" required max="153">
         </label>
 
         <div class="button-block">
@@ -64,6 +64,6 @@
         <p class="signature">glen saren epta . all rights are copyrights TM</p>
     </footer>
 </body>
-<script src="builder.js"></script>
+<script src="sources/scripts/builder.js"></script>
 </html>
 

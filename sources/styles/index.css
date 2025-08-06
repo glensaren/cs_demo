@@ -3,7 +3,7 @@ body{
 }
 
 body p , body h1 , body h2{
-    color: var(--font-color)
+    color: var(--font-color);
 }
 
 input[type="text"]{

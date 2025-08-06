@@ -15,6 +15,9 @@ builderForm.addEventListener('submit', (e) => {
     const columns = builderFormData.get('columnAmount')
     console.log(columns)
 
+
+    builderDisplay.style.gridTemplateColumns = `repeat(${columns}, auto)`
+
     let i = 0
     while (i < rows){
         let block = document.createElement('div')
@@ -27,8 +30,11 @@ builderForm.addEventListener('submit', (e) => {
         builderDisplay.append(block)
         i++
     }
+}
+)
 
-// if (Math.random().toFixed(1) == Math.random().toFixed(1)){
+        // if (Math.random().toFixed(1) == Math.random().toFixed(1)){
+        // устаревший код для "мозайки"
         //     block.classList.add('black')
         // }
         
@@ -43,9 +49,8 @@ builderForm.addEventListener('submit', (e) => {
         // else if (i % 2 == 0 && i % 3 != 0){
         //     block.classList.add('purple')
         // }
-    
-}
-)
+
+
 
 builderEraseButton.addEventListener('click' , ()=> { 
     builderDisplay.innerHTML = ''

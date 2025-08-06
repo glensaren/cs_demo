@@ -46,7 +46,10 @@ form p{
 
 .builder-display{
     line-height: 0;
+    display: grid;
+    justify-content: start;
     border-top: .3rem solid #000000;
+    /* grid-template-columns: repeat(7, 1fr); */
 }
 
 .information-block{
