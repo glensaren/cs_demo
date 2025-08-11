@@ -1,0 +1,32 @@
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.inventory-display{
+    font-size: 3.2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
+    display: inline-block;
+    font-family: sans-serif;
+    color: rgb(26, 57, 119);
+    background-color: rgb(179, 179, 244);
+}
+
+.button-grid{
+    display: inline-grid;
+    position: absolute;
+    top:6.4rem;
+    z-index: 99;
+    /* max-width: 26rem; */
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    background-color: navy;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.hidden{
+    display: none;
+}
