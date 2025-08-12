@@ -66,7 +66,7 @@ function matrixBuilder(height = 0, width = 0){
     return matrix
 }
 
-function matrixSetter(matrixName, y , x , assignedValue){
+function matrixValueSetter(matrixName, y , x , assignedValue){
     (matrixName[y])[x] = assignedValue
 }
 
@@ -78,16 +78,26 @@ function matrixSizeGetter(matrixName){
 
 // coordLearner(1,0)
 
-const testMatrix = [
-    [1,2,3],
-    [4,5,6],
-]
-console.log(`Высота массива: ${testMatrix.length} рядов`)
-console.log(`Ширина массива: ${(testMatrix[0].length)} столбцов`)
-
 const newMatrix = matrixBuilder(6,3);
-matrixSetter(newMatrix, 0 , 1 , 99)
+matrixValueSetter(newMatrix, 0 , 1 , 99)
 
 console.log(newMatrix)
 console.log(matrixSizeGetter(newMatrix))
 
+const wiListApplyer = 
+'cтальная труба,деревянный прут,пистолет Беретта 92Ф,бутылка минеральной воды(0.5Л),пачка патронов 9х19 Парабеллум(50 штук)'
+const wiArray = wiListApplyer.split(',')
+console.log(wiArray)
+
+console.log(inventoryDisplay.children)
+const inventoryCellCollection = []
+for (let cell of inventoryDisplay.children){
+    inventoryCellCollection.push(cell)
+}
+
+console.log(inventoryCellCollection)
+let h = 0
+inventoryCellCollection.forEach((element) => {
+    let elementIndex = inventoryCellCollection.indexOf(element)
+    element.textContent = wiArray[elementIndex]
+})
