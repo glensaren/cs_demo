@@ -4,6 +4,10 @@ main{
     flex-direction: column;
 }
 
+p{
+    font-size: 3rem;
+}
+
 .inventory-display{
     font-size: 3.2rem;
     text-align: center;

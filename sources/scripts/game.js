@@ -1,22 +1,41 @@
 const buttonGrid = document.querySelector('.button-grid')
-
+const foundItemDisplay = document.createElement('p')
+buttonGrid.after(foundItemDisplay)
 const clickHandler = {
     inventoryDisplayHandler : function(){
         inventoryDisplay.classList.toggle('hidden')
     },
     itemSearch : function(){
-        Math.random()
+        
+        const diceValue = (Math.random() * 25).toFixed(0);
+        if (diceValue < 10){
+            foundItemDisplay.textContent = 'Вы ничего не нашли'
+        }
+
+        if (diceValue >= 10 && diceValue < 17){
+            foundItemDisplay.textContent = 'Вы нашли мусор'
+            winvArray.push('Мусор')
+            inventoryGUI_Update()
+        }
     }
 }
 
-function buttonCreator(buttonTextContent , executableAction){
+function buttonCreator(buttonTextContent , executableAction , listenedKey = 0){
     const button = document.createElement('button');
     button.textContent = buttonTextContent;
     button.addEventListener('click' , executableAction)
+    if (listenedKey != 0){
+        document.addEventListener('keydown', (e)=> {
+            if (e.code == listenedKey){
+                executableAction()
+            }
+        })
+    }
     return button
 }
 
-buttonGrid.append(buttonCreator('Инвентарь' , clickHandler.inventoryDisplayHandler))
+buttonGrid.append(buttonCreator('Инвентарь' , clickHandler.inventoryDisplayHandler, 'Numpad1'))
+buttonGrid.append(buttonCreator('Поиск' , clickHandler.itemSearch))
 
 const inventoryDisplay = document.querySelector('.inventory-display')
 const inventory = {
@@ -84,20 +103,20 @@ matrixValueSetter(newMatrix, 0 , 1 , 99)
 console.log(newMatrix)
 console.log(matrixSizeGetter(newMatrix))
 
-const wiListApplyer = 
+const winvListApplyer = 
 'cтальная труба,деревянный прут,пистолет Беретта 92Ф,бутылка минеральной воды(0.5Л),пачка патронов 9х19 Парабеллум(50 штук)'
-const wiArray = wiListApplyer.split(',')
-console.log(wiArray)
+const winvArray = winvListApplyer.split(',')
+console.log(winvArray)
 
-console.log(inventoryDisplay.children)
 const inventoryCellCollection = []
 for (let cell of inventoryDisplay.children){
     inventoryCellCollection.push(cell)
 }
-
-console.log(inventoryCellCollection)
-let h = 0
-inventoryCellCollection.forEach((element) => {
+function inventoryGUI_Update(){
+    inventoryCellCollection.forEach((element) => {
     let elementIndex = inventoryCellCollection.indexOf(element)
-    element.textContent = wiArray[elementIndex]
+    element.textContent = winvArray[elementIndex]
 })
+}
+
+inventoryGUI_Update()
