@@ -1,9 +1,20 @@
 const buttonGrid = document.querySelector('.button-grid')
 const foundItemDisplay = document.createElement('p')
 buttonGrid.after(foundItemDisplay)
+
+class Item {
+    constructor(name , description , rarity , amount) {
+        this.name = name;
+        this.description = description;
+        this.rarity = rarity;
+        this.amount = amount
+    }
+}
+
 const clickHandler = {
     inventoryDisplayHandler : function(){
         inventoryDisplay.classList.toggle('hidden')
+        inventoryGUI_Update()
     },
     itemSearch : function(){
         
@@ -17,6 +28,7 @@ const clickHandler = {
             winvArray.push('Мусор')
             inventoryGUI_Update()
         }
+        
     }
 }
 
@@ -103,20 +115,22 @@ matrixValueSetter(newMatrix, 0 , 1 , 99)
 console.log(newMatrix)
 console.log(matrixSizeGetter(newMatrix))
 
-const winvListApplyer = 
-'cтальная труба,деревянный прут,пистолет Беретта 92Ф,бутылка минеральной воды(0.5Л),пачка патронов 9х19 Парабеллум(50 штук)'
-const winvArray = winvListApplyer.split(',')
-console.log(winvArray)
+const winvArray = [
+    new Item('Стол' , 'Деревянный стол', 0.7 , 1),
+    new Item('Стул', 'Деревянный стул', 0.75 , 1),
+    new Item('Автоматический пистолет Стечкина', '9-мм автоматический пистолет Стечкина (АПС, Индекс ГРАУ — 56-А-126) — автоматический пистолет, разработанный в конце 1940-х — начале 1950-х годов конструктором И. Я. Стечкиным и принятый на вооружение Вооружённых Сил СССР в 1951 году, одновременно с пистолетом Макарова.')
+
+]
 
 const inventoryCellCollection = []
 for (let cell of inventoryDisplay.children){
     inventoryCellCollection.push(cell)
 }
+
 function inventoryGUI_Update(){
     inventoryCellCollection.forEach((element) => {
     let elementIndex = inventoryCellCollection.indexOf(element)
-    element.textContent = winvArray[elementIndex]
+    element.textContent = (winvArray[elementIndex]).name
+    element.title = (winvArray[elementIndex]).description
 })
 }
-
-inventoryGUI_Update()
