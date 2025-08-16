@@ -139,11 +139,4 @@ document.addEventListener('keydown' , (e)=> {
 
 //ИДЕЯ! реализовать скрытие подвала и шапки нажатием кнопки (будет numpad5)55
 
-const headerBox = document.querySelector('header')
-const footerBox = document.querySelector('footer')
-document.addEventListener('keydown', (e)=>{
-    if (e.code == 'NumpadSubtract'){
-        headerBox.classList.toggle('off')
-        footerBox.classList.toggle('off')
-    }
-})
+

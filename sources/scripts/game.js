@@ -25,7 +25,7 @@ const clickHandler = {
 
         if (diceValue >= 10 && diceValue < 17){
             foundItemDisplay.textContent = 'Вы нашли мусор'
-            winvArray.push('Мусор')
+            winvArray[3].amount++
             inventoryGUI_Update()
         }
         
@@ -62,23 +62,23 @@ for (let item of Object.keys(inventory)){
 
 // console.log(Object.values(inventory))
 
-const iterableObject = {};
-function objectCycleAppendTester(){
-    let k = 10
-    let i = 0;
-    while (i < 10 && k > 0){
-        iterableObject[`object${i}`] = k
-        i++
-        k--
-    }
-    console.log('Итоговое значение перечисленного объекта:')
-    console.log(iterableObject)
-}
+// const iterableObject = {};
+// function objectCycleAppendTester(){
+//     let k = 10
+//     let i = 0;
+//     while (i < 10 && k > 0){
+//         iterableObject[`object${i}`] = k
+//         i++
+//         k--
+//     }
+//     console.log('Итоговое значение перечисленного объекта:')
+//     console.log(iterableObject)
+// }
 
-objectCycleAppendTester()
+// objectCycleAppendTester()
 
 
-console.log('-----------------------------------------')
+// console.log('-----------------------------------------')
 //==========================================================================================================
 
 function matrixBuilder(height = 0, width = 0){
@@ -101,25 +101,25 @@ function matrixValueSetter(matrixName, y , x , assignedValue){
     (matrixName[y])[x] = assignedValue
 }
 
-function matrixSizeGetter(matrixName){
-    const y = matrixName.length;
-    const x = matrixName[0].length
-    return [y,x]
-}
+// function matrixSizeGetter(matrixName){
+//     const y = matrixName.length;
+//     const x = matrixName[0].length
+//     return [y,x]
+// }
 
 // coordLearner(1,0)
 
 const newMatrix = matrixBuilder(6,3);
 matrixValueSetter(newMatrix, 0 , 1 , 99)
 
-console.log(newMatrix)
-console.log(matrixSizeGetter(newMatrix))
+// console.log(newMatrix)
+// console.log(matrixSizeGetter(newMatrix))
 
 const winvArray = [
     new Item('Стол' , 'Деревянный стол', 0.7 , 1),
     new Item('Стул', 'Деревянный стул', 0.75 , 1),
-    new Item('Автоматический пистолет Стечкина', '9-мм автоматический пистолет Стечкина (АПС, Индекс ГРАУ — 56-А-126) — автоматический пистолет, разработанный в конце 1940-х — начале 1950-х годов конструктором И. Я. Стечкиным и принятый на вооружение Вооружённых Сил СССР в 1951 году, одновременно с пистолетом Макарова.')
-
+    new Item('АПС', '9-мм автоматический пистолет Стечкина (АПС)', 0.12, 1),
+    new Item('Мусор', "Обычный уличный мусор. Наверное , из него выйдет что-то полезное , если правильно переработать", 0.95 , 0 ),
 ]
 
 const inventoryCellCollection = []
@@ -130,7 +130,12 @@ for (let cell of inventoryDisplay.children){
 function inventoryGUI_Update(){
     inventoryCellCollection.forEach((element) => {
     let elementIndex = inventoryCellCollection.indexOf(element)
-    element.textContent = (winvArray[elementIndex]).name
-    element.title = (winvArray[elementIndex]).description
+    let inventoryItem = winvArray[elementIndex]
+
+    if (inventoryItem.amount > 0) {
+        element.textContent = `${inventoryItem.name} | ${inventoryItem.amount} шт.`
+        element.title = inventoryItem.description
+    }
+    
 })
 }

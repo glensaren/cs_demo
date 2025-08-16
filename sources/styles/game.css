@@ -8,6 +8,12 @@ p{
     font-size: 3rem;
 }
 
+.game-name{
+    text-decoration: underline;
+    cursor:help;
+    color: rgb(34, 107, 34);
+}
+
 .inventory-display{
     font-size: 3.2rem;
     text-align: center;
@@ -24,6 +30,8 @@ p{
 
 .inventory-display div{
     background-color: rgb(179, 179, 244);
+    cursor: help;
+    padding: .5rem;
     /* width: 2rem;
     aspect-ratio: 1/1; */
 }

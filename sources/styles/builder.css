@@ -62,7 +62,3 @@ form p{
 .information-block p{
     margin: 0;
 }
-
-header.off , footer.off{
-    display: none;
-}
