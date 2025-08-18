@@ -239,4 +239,20 @@ themeSwitch.addEventListener('click', ()=>{
 
 //Текст , вставленный через bash . пока что только эмулятор
 
+const burgerMenuButton = document.querySelector('.burger-menu-button')
+const burgerMenu = document.querySelector('.burger-menu')
+const burgerMenuSize = burgerMenu.getBoundingClientRect()
+let burgerMenuStatus = 0
+burgerMenu.style.right =`-${burgerMenuSize.width}px`
 
+burgerMenuButton.addEventListener('click', ()=> {
+    if (burgerMenuStatus == 0){
+        burgerMenu.style.right = 0;
+        burgerMenuStatus++
+    }
+
+    else{
+        burgerMenu.style.right =`-${burgerMenuSize.width}px`
+        burgerMenuStatus--
+    }
+})
