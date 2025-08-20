@@ -1,3 +1,11 @@
+<!-- 
+todo 190825 : 
+1)сделать создание произвольного количество полей ввода для денег , с возможностью выбирать валюту , номинал и физическую форму денег
+2)реализовать пункт 1 через самописный класс с конструктором
+3)реализовать возможность создания и загрузки пресетов через localStorage
+4)максимально минимизировать использование ИИ в процессе выполнения вышеуказанных пунктов. 
+5)Красиво оформить саму страницу. Эпоха минимализма в cs-demo должна быть окончена, в конце концов я веб-разработчик
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,47 +66,53 @@
         </section>
     </header>
 
+    <dialog></dialog>
+
     <main>
+        <div class="memory-button-box">
+            
+        </div>
+
         <form action="">
             <label>
                 <p>1-руб. монета</p>
-                <input type="number" name="1">
+                <input type="number" name="1" min="0" value="0">
             </label>
             <label>
                 <p>2-руб. монета</p>
-                <input type="number" name="2">
+                <input type="number" name="2" min="0" value="0">
             </label>
             <label>
                 <p>5-руб. монета</p>
-                <input type="number" name="5">
+                <input type="number" name="5" min="0" value="0">
             </label>
             <label>
                 <p>10-руб. монета</p>
-                <input type="number" name="10">
+                <input type="number" name="10" min="0" value="0">
             </label>
             <label>
                 <p>10-руб. купюра</p>
-                <input type="number" name="10">
+                <input type="number" name="10" min="0" value="0">
             </label>
             <label>
                 <p>50-руб. купюра</p>
-                <input type="number" name="50">
+                <input type="number" name="50" min="0" value="0">
             </label>
             <label>
                 <p>100-руб. купюра</p>
-                <input type="number" name="100">
+                <input type="number" name="100" min="0" value="0">
             </label>
             <label>
                 <p>500 руб. купюра</p>
-                <input type="number" name="500">
+                <input type="number" name="500" min="0" value="0">
             </label>
             <label>
                 <p>1000-руб. купюра</p>
-                <input type="number" name="1000">
+                <input type="number" name="1000" min="0" value="0">
             </label>
             <label>
                 <p>5000-руб. купюра</p>
-                <input type="number" name="5000">
+                <input type="number" name="5000" min="0" value="0">
             </label>
 
             <p>Итоговая сумма : <span class="final-sum">0 руб.</span> </p>
@@ -113,32 +127,7 @@
 </body>
     <script src="sources/scripts/main.js"></script>
 
-    <script>
-        let finalSum = 0
-        const finalSumDisplay = document.querySelector('.final-sum')
-        const pageForm = document.querySelector('form')
-        const inputCollection = pageForm.querySelectorAll('input')
-        function formSumComputer(){
-            let sum = 0
-            for (let child of inputCollection){
-                sum = sum + parseInt(child.value)
-            }
-            return sum
-        }
-            for (let child of inputCollection){
-                child.addEventListener("change", ()=> {
-                    let finalSum = formSumComputer()
-                    finalSumDisplay.textContent = finalSum
-                }
-            )
-            }
-        
-        
-        // for (let child of inputCollection){
-        //     console.log(child.name)
-        // }
-        
-</script>
+    <script src="sources/scripts/moneyCounter.js"></script>
 </html>
 
 <!-- 1 , 2 , 5 , 10(монета) , 10 (купюра) , 50 , 100 , 500 , 1000 , 5000 -->
