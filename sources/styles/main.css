@@ -118,9 +118,13 @@ footer{
     position: absolute;
     display: flex;
     flex-direction: column;
-    text-align: ce;
+    text-align: center;
     bottom: 0;
     width: 100%;
+}
+
+footer p{
+    font-size: 1.2rem;
 }
 
 .link{

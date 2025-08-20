@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-empty */
 /* eslint-disable no-unused-vars */
 // todo 190825 : 
@@ -6,15 +7,14 @@
 // 3)реализовать возможность создания и загрузки пресетов через localStorage
 // 4)максимально минимизировать использование ИИ в процессе выполнения вышеуказанных пунктов. 
 // 5)Красиво оформить саму страницу. Эпоха минимализма в cs-demo должна быть окончена, в конце концов я веб-разработчик
+
 const memoryButtonBox = document.querySelector('.memory-button-box')
 const dialogWindow = document.querySelector('dialog')
 const finalSumDisplay = document.querySelector('.final-sum')
 const pageForm = document.querySelector('form')
 const inputCollection = pageForm.querySelectorAll('input') 
 
-
-
-const clickHandler = {
+clickHandler = {
     saveTable : function(){
         const inputTable = {}
         let i = 0
@@ -30,18 +30,30 @@ const clickHandler = {
             }
         }
 
-        console.log(inputTable)
-
-        localStorage.setItem("moneyCounterInputTable" ,inputTable)
+        localStorage.setItem("moneyCounterInputTable" , JSON.stringify(inputTable))
     },
+
     loadTable : function(){
-        const inputTable = localStorage.getItem("moneyCounterInputTable")
-        console.log(typeof inputTable)
+        // переписать на try/catch/finally
+        if (localStorage.getItem('moneyCounterInputTable') == null){
+            console.log('Сохраненного пресета не существует , загружаю встроенный...')
+            let inputTable = JSON.parse(localStorage.getItem("moneyCountingDefaultTable"))
+            localStorage.setItem("moneyCounterInputTable" , JSON.stringify(inputTable))
+        }
+
+        console.log('Всё прошло нормально , пресет существует :)')
+        for (let child of inputCollection){
+        child.addEventListener("change", ()=> {
+            finalSumDisplay.textContent = `${formSumComputer()} руб.`
+        })
+    }
     },
 
-    deleteTable :function(){
-
+    deleteTable : function(){
+        localStorage.removeItem('moneyCounterInputTable')
     },
+
+
 
     closeModal: function(){
         dialogWindow.close()
@@ -50,8 +62,10 @@ const clickHandler = {
     modalAddInput : function(){
         const input = document.createElement('input')
         dialogWindow.append(input)
-    }
+    },
 }
+
+const inputTable = localStorage.getItem('moneyCount')
 
 function buttonCreator(buttonTextContent , executableAction , title = 0 , listenedKey = 0){
     const button = document.createElement('button');
@@ -75,20 +89,14 @@ function formSumComputer(){
     }
     return sum
 }       
-        
+
+
 memoryButtonBox.append(buttonCreator('Сохранить' , clickHandler.saveTable , 'Сохранить таблицу'))
 memoryButtonBox.append(buttonCreator('Загрузить' , clickHandler.loadTable, 'Загрузить таблицу'))
 memoryButtonBox.append(buttonCreator('Удалить' , clickHandler.deleteTable, 'Удалить таблицу'))
 
 dialogWindow.append(buttonCreator('Добавить поле ввода', clickHandler.modalAddInput))
 dialogWindow.append(buttonCreator('Создать таблицу', clickHandler.closeModal))
-
-for (let child of inputCollection){
-    // console.log(parseInt(child.value))
-    child.addEventListener("change", ()=> {
-        finalSumDisplay.textContent = `${formSumComputer()} руб.`
-    })
-}
 
 // const testSubject = {
 //     abilities : {
