@@ -8,13 +8,13 @@ const builderForm = document.querySelector('.builder-form')
 const blockAmountDisplay = document.querySelector('.block-amount-display')
 const errorDisplay = document.querySelector('.error-display')
 let rows = 0
+
 builderForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const creationTime = Date.now()
     const builderFormData = new FormData(builderForm);
     rows = builderFormData.get('rowAmount');
     const columns = builderFormData.get('columnAmount')
-    console.log(columns)
-
 
     builderDisplay.style.gridTemplateColumns = `repeat(${columns}, auto)`
 
@@ -30,6 +30,9 @@ builderForm.addEventListener('submit', (e) => {
         builderDisplay.append(block)
         i++
     }
+
+    const endTime = Date.now()
+    console.log(`Создание массива заняло ${endTime - creationTime} мс.`)
 }
 )
 

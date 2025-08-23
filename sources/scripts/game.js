@@ -11,7 +11,7 @@ class Item {
     }
 }
 
-const clickHandler = {
+clickHandler = {
     inventoryDisplayHandler : function(){
         inventoryDisplay.classList.toggle('hidden')
         inventoryGUI_Update()

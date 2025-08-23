@@ -1,6 +1,21 @@
 const headerBox = document.querySelector('header')
 const footerBox = document.querySelector('footer')
 
+const creationTime = new Date()
+const timeBox = document.createElement('div')
+const creationTimeDisplay = document.createElement('p')
+const passedTimeDisplay = document.createElement('p')
+timeBox.append(passedTimeDisplay)
+timeBox.className = 'time-box'
+creationTimeDisplay.textContent = `Время открытия страницы - ${creationTime.getHours()}:${creationTime.getMinutes()}:${creationTime.getSeconds()}`
+timeBox.append(creationTimeDisplay)
+headerBox.append(timeBox)
+
+setInterval(()=> {
+    let passedTime = new Date()
+    passedTimeDisplay.textContent = `${passedTime.getHours() - creationTime.getHours()}:${passedTime.getMinutes() - creationTime.getMinutes()}:${passedTime.getSeconds() - creationTime.getSeconds()}`
+} , 1000)
+
 document.addEventListener('keydown', (e)=>{
     if (e.code == 'NumpadSubtract'){
         headerBox.classList.toggle('off')

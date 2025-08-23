@@ -1,3 +1,4 @@
+let programStart = Date.now()
 // let itemsMap = new Map
 // const testPishka = document.querySelector('.test-pishka')
 const galleryBox = document.querySelector('.gallery')
@@ -256,3 +257,6 @@ burgerMenuButton.addEventListener('click', ()=> {
         burgerMenuStatus--
     }
 })
+
+let programEnd = Date.now()
+console.log(`Загрузка всего скрипта заняла ${programEnd - programStart} милисекунд`)
