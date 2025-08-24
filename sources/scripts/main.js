@@ -1,23 +1,37 @@
 const headerBox = document.querySelector('header')
 const footerBox = document.querySelector('footer')
 
-// const creationTime = new Date()
+//   |  Вот это только для deltaTime , на экран не выводится
+//   v
 const creationTime = Date.now()
+
+const startTime = new Date()
+const timeOptions = {
+    weekday : 'short',
+    year : 'numeric',
+    month : 'long',
+    day : 'numeric',
+    era : 'short',
+    hourCycle : 'h12',
+    hour : '2-digit',
+    minute : '2-digit',
+    second : '2-digit',
+    dayPeriod : 'short',
+    timeZoneName : 'shortOffset'
+}
 const timeBox = document.createElement('div')
-const creationTimeDisplay = document.createElement('p')
+const startTimeDisplay = document.createElement('p')
 const passedTimeDisplay = document.createElement('p')
 timeBox.append(passedTimeDisplay)
 timeBox.className = 'time-box'
-// creationTimeDisplay.textContent = `Время открытия страницы - ${creationTime.getHours()}:${creationTime.getMinutes()}:${creationTime.getSeconds()}`
-creationTimeDisplay.textContent = `Время открытия страницы - ${new Date}`
-timeBox.append(creationTimeDisplay)
+startTimeDisplay.textContent = `Время открытия страницы - ${startTime.toLocaleDateString('ru-RU' , timeOptions)}`
+timeBox.append(startTimeDisplay)
 headerBox.append(timeBox)
 
 setInterval(()=> {
-    // let passedTime = new Date()
     let deltaTime = Math.floor((Date.now() - creationTime) / 1000)
-    // passedTimeDisplay.textContent = `Сайт запущен ${passedTime.getHours() - creationTime.getHours()} часов, ${passedTime.getMinutes() - creationTime.getMinutes()} минут, ${passedTime.getSeconds() - creationTime.getSeconds()} секунд`
-    passedTimeDisplay.textContent = `Site is running for ${deltaTime} sec. , ${Math.floor(deltaTime / 60)} min. , ${Math.floor(deltaTime / 3600)} h.`
+    passedTimeDisplay.textContent = `Сайт запущен ${Math.floor(deltaTime / 3600)} часов, ${(deltaTime % 60 / 60)} , ${(deltaTime % 3600 % 60)} секунд`
+    //закончит эту х_йню
 } , 1000)
 
 document.addEventListener('keydown', (e)=>{
