@@ -1,19 +1,23 @@
 const headerBox = document.querySelector('header')
 const footerBox = document.querySelector('footer')
 
-const creationTime = new Date()
+// const creationTime = new Date()
+const creationTime = Date.now()
 const timeBox = document.createElement('div')
 const creationTimeDisplay = document.createElement('p')
 const passedTimeDisplay = document.createElement('p')
 timeBox.append(passedTimeDisplay)
 timeBox.className = 'time-box'
-creationTimeDisplay.textContent = `Время открытия страницы - ${creationTime.getHours()}:${creationTime.getMinutes()}:${creationTime.getSeconds()}`
+// creationTimeDisplay.textContent = `Время открытия страницы - ${creationTime.getHours()}:${creationTime.getMinutes()}:${creationTime.getSeconds()}`
+creationTimeDisplay.textContent = `Время открытия страницы - ${new Date}`
 timeBox.append(creationTimeDisplay)
 headerBox.append(timeBox)
 
 setInterval(()=> {
-    let passedTime = new Date()
-    passedTimeDisplay.textContent = `${passedTime.getHours() - creationTime.getHours()}:${passedTime.getMinutes() - creationTime.getMinutes()}:${passedTime.getSeconds() - creationTime.getSeconds()}`
+    // let passedTime = new Date()
+    let deltaTime = Math.floor((Date.now() - creationTime) / 1000)
+    // passedTimeDisplay.textContent = `Сайт запущен ${passedTime.getHours() - creationTime.getHours()} часов, ${passedTime.getMinutes() - creationTime.getMinutes()} минут, ${passedTime.getSeconds() - creationTime.getSeconds()} секунд`
+    passedTimeDisplay.textContent = `Site is running for ${deltaTime} sec. , ${Math.floor(deltaTime / 60)} min. , ${Math.floor(deltaTime / 3600)} h.`
 } , 1000)
 
 document.addEventListener('keydown', (e)=>{

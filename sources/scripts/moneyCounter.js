@@ -14,14 +14,15 @@ const finalSumDisplay = document.querySelector('.final-sum')
 // const pageForm = document.querySelector('form')
 // const inputCollection = pageForm.querySelectorAll('input') 
 
-class Input {
-    constructor(name, value = 0, min = 0, type = 'number'){
-        this.name = name,
-        this.value = value,
-        this.min = min,
-        this.type = type
-    }
-}
+// class Input {
+//     constructor(name, value = 0, min = 0, type = 'number'){
+//         this.name = name,
+//         this.value = value,
+//         this.min = min,
+//         this.type = type
+//     }
+// }
+// НЕ ПОНАДОБИЛСЯ!! надо реально разобраться с классами и понять - где их вообще использовать :/
 
 clickHandler = {
     saveTable : function(){
@@ -49,13 +50,13 @@ clickHandler = {
         for (let inputData in inputTable){
             let label = document.createElement('label')
             let labelParagraph = document.createElement('p')
-            let input = new Input(inputTable[inputData].name)
-            // let input =  document.createElement('input')
+            // let input = new Input(inputTable[inputData].name)
+            let input =  document.createElement('input')
 
-            // input.name = inputTable[inputData].name
-            // input.type = 'number'
-            // input.min = 0
-            // input.value = 0
+            input.name = inputTable[inputData].name
+            input.type = 'number'
+            input.min = 0
+            input.value = 0
 
             labelParagraph.textContent = inputTable[inputData].textContent
 
@@ -74,7 +75,7 @@ clickHandler = {
     },
 
     deleteTable : function(){
-        localStorage.removeItem('moneyCounterInputTable')
+            
     },
 
 
