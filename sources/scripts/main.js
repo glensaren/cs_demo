@@ -1,3 +1,5 @@
+//желательно поработать над шифрование , просто так пароли
+//хранить в коде - опасно
 const headerBox = document.querySelector('header')
 const footerBox = document.querySelector('footer')
 
@@ -23,14 +25,15 @@ const timeBox = document.createElement('div')
 const startTimeDisplay = document.createElement('p')
 const passedTimeDisplay = document.createElement('p')
 timeBox.append(passedTimeDisplay)
-timeBox.className = 'time-box'
+timeBox.classList.add('time-box')
+timeBox.classList.add('admin-only')
 startTimeDisplay.textContent = `Время открытия страницы - ${startTime.toLocaleDateString('ru-RU' , timeOptions)}`
 timeBox.append(startTimeDisplay)
 headerBox.append(timeBox)
 
 setInterval(()=> {
     let deltaTime = Math.floor((Date.now() - creationTime) / 1000)
-    passedTimeDisplay.textContent = `Сайт запущен ${Math.floor(deltaTime / 3600)} часов, ${(deltaTime % 60 / 60)} , ${(deltaTime % 3600 % 60)} секунд`
+    passedTimeDisplay.textContent = `Сайт запущен ${Math.floor(deltaTime / 3600)} часов, ${Math.floor(deltaTime/60)} , ${(deltaTime % 3600 % 60)} секунд`
     //закончит эту х_йню
 } , 1000)
 
@@ -48,10 +51,11 @@ let clickHandler = {
         }
     }
 }
-function buttonCreator(buttonTextContent , executableAction , title = 0 , listenedKey = 0){
+function buttonCreator(buttonTextContent , executableAction , title = '' , listenedKey = 0, classList = '' ){
     const button = document.createElement('button');
     button.textContent = buttonTextContent;
     button.title = title
+    button.classList.add(classList)
     button.addEventListener('click' , executableAction)
     if (listenedKey != 0){
         document.addEventListener('keydown', (e)=> {
@@ -63,5 +67,28 @@ function buttonCreator(buttonTextContent , executableAction , title = 0 , listen
     return button
 }
 
-headerBox.append(buttonCreator("Содержимое LS" , clickHandler.LSCheck))
+headerBox.append(buttonCreator("Содержимое LS" , clickHandler.LSCheck, '' , '' , 'admin-only'))
 
+const adminOnlyElems = document.querySelectorAll('.admin-only')
+const keyholder = ['ghx183','letmein','17729']
+const adminLoginForm = document.querySelector('.admin-login-form')
+adminLoginForm.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    const keyInput = new FormData(adminLoginForm)
+    const key = keyInput.get('admin-switch');
+    if (keyholder.includes(key)){
+        for (let elem in adminOnlyElems){
+            adminOnlyElems[elem].classList.toggle('admin-only')
+        }
+    
+    }
+    else {
+        const warning = document.createElement('p')
+        warning.style.background = 'red'
+        warning.style.color = 'white'
+        warning.style.padding = '.5rem'
+        warning.textContent = 'Доступ запрещён'
+        adminLoginForm.after(warning)
+        adminLoginForm.remove()
+    }
+})

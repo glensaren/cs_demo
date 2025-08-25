@@ -45,11 +45,13 @@ button{
 
 .test-pishka{
     background-color: rgb(112, 0, 0);
-    color: var(--font-color);
+    color: white;
+    display: inline-block;
     animation: glow;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     font-size: 2rem;
+    padding: 1rem .5rem;
 }
 
 .newDiv{

@@ -5,6 +5,7 @@
 :root{
     font-size: 62.5%;
     --header-color : aliceblue;
+    --footer-color: aliceblue;
     --bg-color :white;
     --font-color :black;
     --block-description-bg: rgb(75, 109, 173) ;
@@ -13,11 +14,12 @@
 }
 
 .dark-theme{
-    --header-color : rgb(54, 56, 57);
+    --header-color : rgb(55, 55, 55);
+    --footer-color: rgb(55, 55, 55);
     --bg-color :rgb(28, 28, 28);
     --font-color :rgb(219, 219, 219);
     --block-description-bg: rgb(20, 0, 66);
-    --map-UT-bg: rgb(92, 92, 80);
+    --map-UT-bg: rgb(90, 90, 90);
     --form-bg:rgb(66, 52, 52);
 }
 
@@ -31,11 +33,16 @@ main{
     margin: 0;
 }
 
+.admin-only{
+    display: none;
+}
+
 /* header styles start */
 
 header{
     background-color: var(--header-color);
     border-bottom: 2px solid black;
+    padding: 1.5rem 2rem;
 }
 
 .header-flex-wrapper{
@@ -118,7 +125,7 @@ header img{
 /* footer styles start */
 
 footer{
-    background-color: beige;
+    background-color: var(--footer-color);
     position: absolute;
     display: flex;
     flex-direction: column;
