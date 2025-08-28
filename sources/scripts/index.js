@@ -260,3 +260,16 @@ burgerMenuButton.addEventListener('click', ()=> {
 
 let programEnd = Date.now()
 console.log(`Загрузка всего скрипта заняла ${programEnd - programStart} милисекунд`)
+
+const testimage = document.querySelector('.image')
+const imageQueue = ['muhtar' , 'rose' , 'zona' ,'raper' , 'papa']
+let i = 0
+function imageSpinwheel(){
+    testimage.src = `http://127.0.0.1:5500/sources/img/${imageQueue[i]}.png`
+    i++
+    if ((i / imageQueue.length) == 1){i = 0}
+}
+
+setInterval(
+    imageSpinwheel , 2000
+)
