@@ -262,7 +262,7 @@ let programEnd = Date.now()
 console.log(`Загрузка всего скрипта заняла ${programEnd - programStart} милисекунд`)
 
 const testimage = document.querySelector('.image')
-const imageQueue = ['muhtar' , 'rose' , 'zona' ,'raper' , 'papa']
+const imageQueue = ['muhtar' , 'tewiq', 'rose' , 'zona' ,'raper' , 'papa' , 'gg' ]
 let i = 0
 function imageSpinwheel(){
     testimage.src = `http://127.0.0.1:5500/sources/img/${imageQueue[i]}.png`
@@ -271,5 +271,5 @@ function imageSpinwheel(){
 }
 
 setInterval(
-    imageSpinwheel , 2000
+    imageSpinwheel , 400
 )

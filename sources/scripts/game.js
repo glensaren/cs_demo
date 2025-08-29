@@ -3,7 +3,7 @@ const foundItemDisplay = document.createElement('p')
 buttonGrid.after(foundItemDisplay)
 
 class Item {
-    constructor(name , description , rarity , amount) {
+    constructor(name , description , rarity , amount = 0) {
         this.name = name;
         this.description = description;
         this.rarity = rarity;
@@ -11,13 +11,24 @@ class Item {
     }
 }
 
+const winvArray = [
+    new Item('Стол' , 'Деревянный стол', 0.7 , 1),
+    new Item('Стул', 'Деревянный стул', 0.75 , 1),
+    new Item('АПС', '9-мм автоматический пистолет Стечкина (АПС)', 0.12, 1),
+    new Item('Мусор', "Обычный уличный мусор. Наверное , из него выйдет что-то полезное , если правильно переработать", 0.8),
+    new Item('Бутылка воды(0.5л)', "Потертая бутылка питьевой негазированной воды"),
+    new Item('Шоколадный батончик', "Шоколадный батончик в кислотно-жёлтой упаковке. Содержит арахис"),
+    new Item("Кухонный нож" , "Обычный кухонный нож", 0.1),
+    new Item(""),
+]
+
 clickHandler = {
     inventoryDisplayHandler : function(){
         inventoryDisplay.classList.toggle('hidden')
         inventoryGUI_Update()
     },
     itemSearch : function(){
-        
+        //переписать на свитч и подвязать редкость предметов
         const diceValue = (Math.random() * 25).toFixed(0);
         if (diceValue < 10){
             foundItemDisplay.textContent = 'Вы ничего не нашли'
@@ -45,14 +56,15 @@ function buttonCreator(buttonTextContent , executableAction , listenedKey = 0){
     }
     return button
 }
-
 buttonGrid.append(buttonCreator('Инвентарь' , clickHandler.inventoryDisplayHandler, 'Numpad1'))
 buttonGrid.append(buttonCreator('Поиск' , clickHandler.itemSearch))
 
 const inventoryDisplay = document.querySelector('.inventory-display')
-const inventory = {
-    
+for (let i = 0; i < winvArray.length ; i++){
+    const cell = document.createElement('div')
+    inventoryDisplay.append(cell)
 }
+const inventory = {}
 
 for (let item of Object.keys(inventory)){
     const itemNode = document.createElement('p')
@@ -114,13 +126,6 @@ matrixValueSetter(newMatrix, 0 , 1 , 99)
 
 // console.log(newMatrix)
 // console.log(matrixSizeGetter(newMatrix))
-
-const winvArray = [
-    new Item('Стол' , 'Деревянный стол', 0.7 , 1),
-    new Item('Стул', 'Деревянный стул', 0.75 , 1),
-    new Item('АПС', '9-мм автоматический пистолет Стечкина (АПС)', 0.12, 1),
-    new Item('Мусор', "Обычный уличный мусор. Наверное , из него выйдет что-то полезное , если правильно переработать", 0.95 , 0 ),
-]
 
 const inventoryCellCollection = []
 for (let cell of inventoryDisplay.children){
