@@ -1,3 +1,36 @@
+const promise = new Promise((zaebis , ploho)=>{
+    const random = Math.random()
+    if (random > 0.5){
+        zaebis(random)
+    }
+
+    else{
+        ploho(random)
+    }
+}
+)
+
+promise
+.then(zaebis => {
+    console.log(`Успех! ${zaebis}`)
+})
+.catch(ploho => {
+    console.log(`Не вышло! ${ploho}`)
+})
+
+async function fetchText() {
+    try {
+        const response = await fetch('https://baconipsum.com/api/?type=meat-and-filler&paras=1');
+        const text = await response.text();
+        console.log('📨 Полученный текст:', text);
+    } catch (error) {
+        console.error('💥 Ошибка:', error);
+    }
+}
+
+// Вызываем функцию
+fetchText();
+
 let programStart = Date.now()
 // let itemsMap = new Map
 // const testPishka = document.querySelector('.test-pishka')
@@ -273,3 +306,5 @@ function imageSpinwheel(){
 setInterval(
     imageSpinwheel , 400
 )
+
+

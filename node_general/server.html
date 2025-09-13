@@ -11,6 +11,15 @@
     </header>
 
     <main>
+        <!-- <form method="post" action="server.js">
+            <label for="">
+            <p>Напиши чо нибудь лох</p>
+            <input type="text" placeholder="Вот суда">
+            <button type="submit">Сохранить</button>
+        </label>
+        </form> -->
+        
+        <button class="testButton"></button>
 
     </main>
 
@@ -18,4 +27,21 @@
 
     </footer>
 </body>
+
+<script>
+const button = document.querySelector('testButton')
+button.addEventListener('click', async () => {
+  const dataToSend = { username: 'John', email: 'test@mail.com' };
+
+  const response = await fetch('server.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' }, // Важно: говорим серверу, что шлем JSON
+    body: JSON.stringify(dataToSend) // Превращаем объект в строку JSON
+  });
+
+  const result = await response.json(); // Парсим JSON-ответ от сервера
+  console.log('Ответ от сервера:', result);
+});
+</script>
+
 </html>

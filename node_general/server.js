@@ -14,6 +14,8 @@ const server = http.createServer((req , res) => {
     })
 })
 
+
+
 const startTime = new Date()
 const timeOptions = {
     weekday : 'short',
@@ -39,4 +41,3 @@ fs.readFile(`journal.txt`,'utf-8',(err, data)=>{
         console.log(`Запись прошла успешно`)
     })
 })
-
