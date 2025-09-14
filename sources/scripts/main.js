@@ -47,7 +47,9 @@ document.addEventListener('keydown', (e)=>{
 let clickHandler = {
     LSCheck : function() {
         for (let key in localStorage){
-            console.log(`${key}: ${localStorage[key]}`)
+            if (typeof localStorage[key] != 'function'){
+                console.log(`${key}: ${localStorage[key]}`)
+            }
         }
     }
 }

@@ -18,18 +18,16 @@ promise
     console.log(`Не вышло! ${ploho}`)
 })
 
-async function fetchText() {
-    try {
-        const response = await fetch('https://baconipsum.com/api/?type=meat-and-filler&paras=1');
-        const text = await response.text();
-        console.log('📨 Полученный текст:', text);
-    } catch (error) {
-        console.error('💥 Ошибка:', error);
-    }
-}
-
-// Вызываем функцию
-fetchText();
+fetch('https://dog.ceo/api/breeds/image/random')
+.then(response => response.json())
+.then(data => {
+    const main = document.querySelector('main')
+    const image = document.createElement('img')
+    image.style.width = '250px'
+    image.style.height = '250px'
+    image.src = data.message
+    main.append(image)
+})
 
 let programStart = Date.now()
 // let itemsMap = new Map
@@ -307,4 +305,4 @@ setInterval(
     imageSpinwheel , 400
 )
 
-
+// console.log(themeSwitch.removeAttribute('checked'))
