@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sources/styles/main.css">
     <link rel="stylesheet" href="sources/styles/index.css">
-    
+
+    <script>
+        if (localStorage.getItem('dark theme') == 'on'){
+            document.documentElement.classList.add('dark-theme')
+        }
+    </script>
+
     <title>cs+demo</title>
 </head>
 <body>
@@ -47,7 +53,20 @@
     </header>
 
     <main>
-        <img src="sources/img/burger.svg" alt="" class="image">
+
+        <!-- место под спойлер -->
+
+        <section class="imageSpoiler" id="spoiler1">
+            <h3 class="imageSpoilerHeader">Кортинки корзинки</h3>
+            <div>
+                <div>
+                    <p>Тут будут все картинки , которые я вставляю через JS</p>
+                    <img src="sources/img/burger.svg" alt="" class="image">
+                </div>
+            </div>
+        </section>
+
+        <!--  -->
 
         <button class="test-button">нажми меня!</button>
 

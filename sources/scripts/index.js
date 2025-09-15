@@ -257,6 +257,9 @@ Waffle.love()
 //==========================================================================================================
 // 5)Переключатель темы
 const themeSwitch =  document.querySelector(".theme-switch")
+if (localStorage.getItem('dark theme') == 'on'){
+    themeSwitch.setAttribute('checked' , 'true')
+}
 themeSwitch.addEventListener('click', ()=>{
     if (themeSwitch.checked == true){
         document.documentElement.classList.add('dark-theme')
@@ -306,3 +309,40 @@ setInterval(
 )
 
 // console.log(themeSwitch.removeAttribute('checked'))
+
+//ПРАВКА НЕПРАВИЛЬНОЙ ТЕРМИНОЛОГИИ
+//спойлерами я называл описания , которое появляется при
+//наведении мыши на элемент . Теперь это называется
+//дескрипшен (description)
+//
+//Спойлеры же в свою очередь - это элементы , "выползающие"
+//вниз при нажатии на заголовок
+//Именно созданием настоящего спойлера я сейчас и займусь
+//(код основан на книге Владимира Дронова)
+
+let imageSpoilerState = false
+function onHeaderClick(){
+    imageSpoilerState != imageSpoilerState
+    if (imageSpoilerState){
+        this.parentElement.classList.add('opened')
+    }
+    else{
+        this.parentElement.classList.remove('opened')
+    }
+}
+
+function createImageSpoiler (element , state=false, decoration=''){
+    const header = element.querySelector('.imageSpoilerHeader')
+    element.classList.add('spoiler')
+    imageSpoilerState = state
+    if (imageSpoilerState){
+        element.classList.add('opened')
+    }
+    if (decoration){
+        element.classList.add('decoration')
+    }
+    header.addEventListener('click', onHeaderClick)
+}
+
+const spoiler1 = document.querySelector('#spoiler1')
+createImageSpoiler(spoiler1)
