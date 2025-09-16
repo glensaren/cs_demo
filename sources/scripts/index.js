@@ -18,16 +18,6 @@ promise
     console.log(`Не вышло! ${ploho}`)
 })
 
-fetch('https://dog.ceo/api/breeds/image/random')
-.then(response => response.json())
-.then(data => {
-    const main = document.querySelector('main')
-    const image = document.createElement('img')
-    image.style.width = '250px'
-    image.style.height = '250px'
-    image.src = data.message
-    main.append(image)
-})
 
 let programStart = Date.now()
 // let itemsMap = new Map
@@ -38,12 +28,9 @@ const feedbackFormBox = document.querySelector('.feedback-form')
 
 
 //0) вспоминаю, что такое append и alert + selector
-
-const testButton = document.querySelector('.test-button')
+//Прим. testButton удалён
 const mainBox = document.querySelector('main')
-testButton.addEventListener("click" , ()=> {
-    alert (testButton.innerHTML)
-})
+
 
 let newDiv = document.createElement("div")
 newDiv.innerHTML = "<h1>Это вставленный текст</h1>"
@@ -320,29 +307,59 @@ setInterval(
 //Именно созданием настоящего спойлера я сейчас и займусь
 //(код основан на книге Владимира Дронова)
 
-let imageSpoilerState = false
-function onHeaderClick(){
-    imageSpoilerState != imageSpoilerState
-    if (imageSpoilerState){
-        this.parentElement.classList.add('opened')
-    }
-    else{
-        this.parentElement.classList.remove('opened')
-    }
+//код внизу не работает буду писать свой
+// let imageSpoilerState = false
+// function onHeaderClick(){
+//     imageSpoilerState != imageSpoilerState
+//     if (imageSpoilerState){
+//         this.parentElement.classList.add('opened')
+//     }
+//     else{
+//         this.parentElement.classList.remove('opened')
+//     }
+// }
+
+// function createImageSpoiler (element , state=false, decoration=''){
+//     const header = element.querySelector('.imageSpoilerHeader')
+//     element.classList.add('spoiler')
+//     imageSpoilerState = state
+//     if (imageSpoilerState){
+//         element.classList.add('opened')
+//     }
+//     if (decoration){
+//         element.classList.add('decoration')
+//     }
+//     header.addEventListener('click', onHeaderClick)
+// }
+
+// const spoiler1 = document.querySelector('#spoiler1')
+// createImageSpoiler(spoiler1)
+
+function getDogImage() {
+    return fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => response.json())
+    .then(data => {
+        const image = document.createElement('img')
+        image.style.width = '250px'
+        image.style.height = '250px'
+        image.src = data.message
+        return image
+    })
 }
 
-function createImageSpoiler (element , state=false, decoration=''){
-    const header = element.querySelector('.imageSpoilerHeader')
-    element.classList.add('spoiler')
-    imageSpoilerState = state
-    if (imageSpoilerState){
-        element.classList.add('opened')
-    }
-    if (decoration){
-        element.classList.add('decoration')
-    }
-    header.addEventListener('click', onHeaderClick)
+function createImageSpoiler(){
+    const spoiler = document.querySelector('.image-spoiler')
+    const header = spoiler.querySelector('.image-spoiler-header')
+    const body = spoiler.querySelector('.image-spoiler-body')
+    header.addEventListener('click' , ()=>{
+        body.classList.toggle('spoiler-hidden')
+    })
+    getDogImage().then(result => {
+        body.append(result)
+    })
+    return spoiler
 }
 
-const spoiler1 = document.querySelector('#spoiler1')
-createImageSpoiler(spoiler1)
+const imageSpoiler = createImageSpoiler()
+
+

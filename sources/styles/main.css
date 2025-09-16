@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+/* *{
+    outline: 1px solid red;
+} */
+
 :root{
     font-size: 62.5%;
     --header-color : aliceblue;

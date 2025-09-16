@@ -115,3 +115,28 @@ button{
     width: 100px;
     aspect-ratio: 1/1;
 }
+
+.image-spoiler{
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.image-spoiler-header{
+    margin: 0;
+    line-height: 275%;
+}
+
+
+
+.image-spoiler-body{
+    border: 1px solid black;
+    margin : 0 .5rem .5rem .5rem
+}
+
+.image-spoiler-body img{
+    border: 1px solid red;
+}
+
+.spoiler-hidden{
+    display: none;
+}
