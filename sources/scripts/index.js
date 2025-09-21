@@ -1,4 +1,4 @@
-const { foregroundColorNames } = require("chalk")
+// const { foregroundColorNames } = require("chalk")
 
 const promise = new Promise((zaebis , ploho)=>{
     const random = Math.random()
@@ -369,18 +369,21 @@ const imageSpoiler = createImageSpoiler()
 //
 
 const testString = 'А ночи здесь пасмурные'
-console.log(testString.toUpperCase())
 const slicedString = testString.split(' ')
-console.log(slicedString)
 for (let key in slicedString){
     slicedString[key] = slicedString[key].toUpperCase()
 }
-console.log(slicedString)
-
-function reverseString(){
-    const reverseString = ''
-    for (let i = 0 ; i < slicedString.length()){
-        
+function reverseString(initialString){
+    const arrayedInitialString = initialString.split(' ')
+    const l = arrayedInitialString.length
+    const reverseString = []
+    for (let i = 0 ; i < l ; i++){
+        reverseString[i] = arrayedInitialString[l - 1 - i]
     }
+    return reverseString.toString().replaceAll(',',' ')
+
+    // return  arrayedInitialString
 }
+
+console.log(reverseString(testString))
 
