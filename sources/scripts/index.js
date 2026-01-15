@@ -381,8 +381,6 @@ function reverseString(initialString){
         reverseString[i] = arrayedInitialString[l - 1 - i]
     }
     return reverseString.toString().replaceAll(',',' ')
-
-    // return  arrayedInitialString
 }
 
 console.log(reverseString(testString))

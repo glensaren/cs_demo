@@ -134,12 +134,9 @@ header img{
 
 footer{
     background-color: var(--footer-color);
-    /* position: absolute; */
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
+    /* /* display: flex;
+    flex-direction: column; */
+    text-align: center; 
 }
 
 footer p{
@@ -151,8 +148,33 @@ footer p{
     font-size: 3rem;
     text-align: center;
     font-family: sans-serif;
-    color: #DDFFDD;
-    background-color: #77AA;
+    color: #ffab93;
+    background-color: rgba(0, 0, 71, 0.667);
+}
+
+.marquee{
+    white-space: nowrap;
+}
+
+.marquee-text p{
+    display: inline-block;
+    /* margin-left: 5rem; */
+    animation: marquee linear infinite 10s;
+    padding-left: 20%;
+}
+
+@keyframes marquee{
+    0% {
+        transform: translateX(0);
+    }
+
+    50%{
+        transform: translateX(-50%);
+    }
+
+    100%{
+        transform: translateX(-100%);
+    }
 }
 
 /* footer styles end */
